@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  node-hostname-app
+  namespace: elastisys
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-hostname-app
+  template:
+    metadata:
+      labels:
+        app: node-hostname-app
+    spec:
+      containers:
+        - name: node-hostname-app
+          image: maheswaran94/node-hostname:latest
+          ports:
+            - containerPort: 3000
